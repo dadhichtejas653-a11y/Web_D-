@@ -1,0 +1,603 @@
+import React, { useState } from "react";
+
+import { motion } from "framer-motion";
+
+
+
+// ProductMatchingFlowcharts.jsx
+
+// Single-file React component (Tailwind CSS assumed).
+
+// Default export a component that renders two interactive flowcharts (User and Seller)
+
+
+
+const initialDB = [
+
+  {
+
+    id: 1,
+
+    name: "Blue Wireless Earbuds",
+
+    price: "₹1,299",
+
+    category: "Electronics",
+
+    image: "https://via.placeholder.com/160?text=Earbuds",
+
+    description: "Compact Bluetooth earbuds with good battery life.",
+
+    seller: "AudioStore",
+
+  },
+
+  {
+
+    id: 2,
+
+    name: "Smartphone Case - Red",
+
+    price: "₹299",
+
+    category: "Accessories",
+
+    image: "https://via.placeholder.com/160?text=Phone+Case",
+
+    description: "Slim protective case for popular phones.",
+
+    seller: "CaseHub",
+
+  },
+
+];
+
+
+
+export default function ProductMatchingFlowcharts() {
+
+  const [db, setDb] = useState(initialDB);
+
+  const [query, setQuery] = useState("");
+
+  const [results, setResults] = useState([]);
+
+  const [selected, setSelected] = useState(null);
+
+  const [sellerMode, setSellerMode] = useState(false);
+
+  const [form, setForm] = useState({ name: "", price: "", category: "", image: "", description: "", seller: "" });
+
+  const [message, setMessage] = useState(null);
+
+
+
+  // Simple text-matching search (mock for image/voice search)
+
+  function handleSearch(e) {
+
+    e.preventDefault();
+
+    setSelected(null);
+
+    const q = query.trim().toLowerCase();
+
+    if (!q) {
+
+      setResults([]);
+
+      setMessage("Please type a product name or keyword.");
+
+      return;
+
+    }
+
+    const matched = db.filter((p) => {
+
+      return (
+
+        p.name.toLowerCase().includes(q) ||
+
+        p.category.toLowerCase().includes(q) ||
+
+        p.description.toLowerCase().includes(q)
+
+      );
+
+    });
+
+    setResults(matched);
+
+    setMessage(matched.length ? `${matched.length} result(s) found.` : "No matching product found.");
+
+  }
+
+
+
+  function handleAddOrUpdate(e) {
+
+    e.preventDefault();
+
+    // simple validation
+
+    if (!form.name || !form.seller) {
+
+      setMessage("Please fill at least Product Name and Seller.");
+
+      return;
+
+    }
+
+
+
+    // if id exists update else add
+
+    if (form.id) {
+
+      setDb((prev) => prev.map((p) => (p.id === form.id ? { ...form } : p)));
+
+      setMessage("Product updated successfully.");
+
+    } else {
+
+      const newProduct = { ...form, id: Date.now() };
+
+      setDb((prev) => [newProduct, ...prev]);
+
+      setMessage("Product added to database.");
+
+    }
+
+    setForm({ name: "", price: "", category: "", image: "", description: "", seller: "" });
+
+  }
+
+
+
+  function handleEdit(product) {
+
+    setForm(product);
+
+    setSellerMode(true);
+
+  }
+
+
+
+  function handleDelete(id) {
+
+    setDb((prev) => prev.filter((p) => p.id !== id));
+
+    setMessage("Product removed.");
+
+    if (selected?.id === id) setSelected(null);
+
+  }
+
+
+
+  return (
+
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white p-6 text-slate-800">
+
+      <header className="max-w-6xl mx-auto mb-6">
+
+        <div className="flex items-center justify-between">
+
+          <h1 className="text-3xl font-extrabold tracking-tight">Product Matching System</h1>
+
+          <div className="space-x-2">
+
+            <button
+
+              onClick={() => { setSellerMode(false); setMessage(null); }}
+
+              className={`px-4 py-2 rounded-2xl border ${!sellerMode ? "bg-white shadow" : "bg-transparent"}`}>
+
+              Try as User
+
+            </button>
+
+            <button
+
+              onClick={() => { setSellerMode(true); setMessage(null); }}
+
+              className={`px-4 py-2 rounded-2xl border ${sellerMode ? "bg-white shadow" : "bg-transparent"}`}>
+
+              Login as Seller
+
+            </button>
+
+          </div>
+
+        </div>
+
+        <p className="text-sm mt-2 text-slate-600">Visual flows for how users search products and how sellers update their product databases.</p>
+
+      </header>
+
+
+
+      <main className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        {/* Flowcharts column */}
+
+        <section className="bg-white rounded-2xl p-6 shadow-sm">
+
+          <h2 className="text-xl font-semibold mb-4">Flows</h2>
+
+          <div className="flex flex-col lg:flex-row gap-6">
+
+            {/* User Flowchart */}
+
+            <motion.div
+
+              initial={{ opacity: 0, y: 8 }}
+
+              animate={{ opacity: 1, y: 0 }}
+
+              transition={{ duration: 0.3 }}
+
+              className="flex-1 bg-gradient-to-br from-indigo-50 to-white rounded-xl p-4"
+
+            >
+
+              <h3 className="font-medium mb-2">User Flow</h3>
+
+              <p className="text-sm text-slate-600 mb-4">User provides input → system matches with seller database → results displayed.</p>
+
+
+
+              <div className="flow-canvas space-y-4">
+
+                <FlowNode title="Open App/Website" subtitle="User arrives at home" />
+
+                <Arrow />
+
+                <FlowNode title="Provide Input" subtitle="Text, Image, or Voice" interactive>
+
+                  <div className="mt-3">
+
+                    <form onSubmit={handleSearch} className="flex gap-2">
+
+                      <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Type product name or keyword" className="flex-1 px-3 py-2 rounded-lg border" />
+
+                      <button className="px-3 py-2 rounded-lg bg-indigo-600 text-white">Search</button>
+
+                    </form>
+
+                    <p className="text-xs text-slate-500 mt-2">(Image/voice search would be implemented on the backend or via browser APIs.)</p>
+
+                  </div>
+
+                </FlowNode>
+
+                <Arrow />
+
+                <FlowNode title="Match with Database" subtitle="Compare input with seller data" />
+
+                <Arrow />
+
+                <FlowNode title="Results" subtitle="Show product or 'not found'" />
+
+                <div className="mt-4">
+
+                  {message && <div className="text-sm text-slate-700 mb-2">{message}</div>}
+
+                  <ResultList items={results} onSelect={(p) => setSelected(p)} />
+
+                </div>
+
+              </div>
+
+            </motion.div>
+
+
+
+            {/* Seller Flowchart */}
+
+            <motion.div
+
+              initial={{ opacity: 0, y: 8 }}
+
+              animate={{ opacity: 1, y: 0 }}
+
+              transition={{ duration: 0.35 }}
+
+              className="flex-1 bg-gradient-to-br from-emerald-50 to-white rounded-xl p-4"
+
+            >
+
+              <h3 className="font-medium mb-2">Seller Flow</h3>
+
+              <p className="text-sm text-slate-600 mb-4">Seller logs in → uploads/edits products → updates central DB used for matching.</p>
+
+
+
+              <div className="flow-canvas space-y-4">
+
+                <FlowNode title="Seller Login/Register" subtitle="Auth (simple mock)" />
+
+                <Arrow />
+
+                <FlowNode title="Upload/Update Product" subtitle="Name, Image, Price, Category" interactive>
+
+                  <div className="mt-3">
+
+                    <form onSubmit={handleAddOrUpdate} className="space-y-2">
+
+                      <input className="w-full px-3 py-2 rounded-lg border" placeholder="Product name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+
+                      <div className="grid grid-cols-2 gap-2">
+
+                        <input className="px-3 py-2 rounded-lg border" placeholder="Price (₹)" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} />
+
+                        <input className="px-3 py-2 rounded-lg border" placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} />
+
+                      </div>
+
+                      <input className="w-full px-3 py-2 rounded-lg border" placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
+
+                      <input className="w-full px-3 py-2 rounded-lg border" placeholder="Seller name" value={form.seller} onChange={(e) => setForm({ ...form, seller: e.target.value })} />
+
+                      <textarea className="w-full px-3 py-2 rounded-lg border" placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+
+                      <div className="flex gap-2">
+
+                        <button type="submit" className="px-3 py-2 rounded-lg bg-emerald-600 text-white">Save</button>
+
+                        <button type="button" onClick={() => setForm({ name: "", price: "", category: "", image: "", description: "", seller: "" })} className="px-3 py-2 rounded-lg border">Clear</button>
+
+                      </div>
+
+                    </form>
+
+                  </div>
+
+                </FlowNode>
+
+                <Arrow />
+
+                <FlowNode title="Validate & Update DB" subtitle="Server validates and stores entry" />
+
+                <Arrow />
+
+                <FlowNode title="Data Available for Search" subtitle="Users will see updated products in searches" />
+
+
+
+                <div className="mt-4">
+
+                  <h4 className="font-medium mb-2">Current DB (<span className="text-slate-500">{db.length}</span>)</h4>
+
+                  <div className="grid gap-2">
+
+                    {db.map((p) => (
+
+                      <div key={p.id} className="flex items-center gap-3 border rounded-lg p-2">
+
+                        <img src={p.image || "https://via.placeholder.com/80"} alt="p" className="w-16 h-16 object-cover rounded" />
+
+                        <div className="flex-1">
+
+                          <div className="font-medium">{p.name}</div>
+
+                          <div className="text-sm text-slate-500">{p.price} • {p.seller}</div>
+
+                        </div>
+
+                        <div className="flex gap-2">
+
+                          <button onClick={() => handleEdit(p)} className="px-2 py-1 rounded bg-yellow-100">Edit</button>
+
+                          <button onClick={() => handleDelete(p.id)} className="px-2 py-1 rounded bg-red-100">Delete</button>
+
+                        </div>
+
+                      </div>
+
+                    ))}
+
+                  </div>
+
+                </div>
+
+
+
+              </div>
+
+            </motion.div>
+
+          </div>
+
+        </section>
+
+
+
+        {/* Details column */}
+
+        <aside className="bg-white rounded-2xl p-6 shadow-sm">
+
+          <h2 className="text-xl font-semibold mb-4">Details & Preview</h2>
+
+
+
+          {selected ? (
+
+            <div className="space-y-4">
+
+              <div className="flex gap-4">
+
+                <img src={selected.image} alt="sel" className="w-28 h-28 object-cover rounded" />
+
+                <div>
+
+                  <div className="text-lg font-semibold">{selected.name}</div>
+
+                  <div className="text-sm text-slate-500">{selected.category} • {selected.seller}</div>
+
+                  <div className="mt-2 text-indigo-600 font-semibold">{selected.price}</div>
+
+                </div>
+
+              </div>
+
+              <p className="text-sm text-slate-700">{selected.description}</p>
+
+              <div className="flex gap-2">
+
+                <button className="px-3 py-2 rounded bg-indigo-600 text-white">Buy / Visit Seller</button>
+
+                <button onClick={() => setSelected(null)} className="px-3 py-2 rounded border">Close</button>
+
+              </div>
+
+            </div>
+
+          ) : (
+
+            <div className="space-y-3 text-slate-600">
+
+              <p className="text-sm">Click a search result to preview product details here.</p>
+
+
+
+              <div>
+
+                <h4 className="font-medium">Quick tips</h4>
+
+                <ul className="list-disc pl-5 text-sm mt-2 space-y-1">
+
+                  <li>Use descriptive product names for better matching.</li>
+
+                  <li>Sellers should add clear images & accurate categories.</li>
+
+                  <li>Image and voice search need extra backend or browser APIs.</li>
+
+                </ul>
+
+              </div>
+
+
+
+            </div>
+
+          )}
+
+
+
+          <div className="mt-6">
+
+            <h4 className="font-medium">Developer Notes</h4>
+
+            <p className="text-xs text-slate-500 mt-2">This is a frontend mock demonstrating the flows. For production you would add authentication, server-side validation, a real image/voice search pipeline, and a persistent database (e.g., Postgres, MongoDB, or a cloud datastore).</p>
+
+          </div>
+
+        </aside>
+
+      </main>
+
+
+
+      <footer className="max-w-6xl mx-auto mt-6 text-center text-xs text-slate-500">Made with ❤️ — Flowcharts & interactive mock for user/seller product matching.</footer>
+
+    </div>
+
+  );
+
+}
+
+
+
+
+
+/* Small helper components below (kept in same file for single-file convenience) */
+
+
+
+function FlowNode({ title, subtitle, children, interactive }) {
+
+  return (
+
+    <div className="p-3 rounded-lg border bg-white shadow-sm">
+
+      <div className="flex items-start justify-between">
+
+        <div>
+
+          <div className="font-medium">{title}</div>
+
+          <div className="text-sm text-slate-500">{subtitle}</div>
+
+        </div>
+
+        {interactive && <div className="text-xs text-slate-400">Interactive</div>}
+
+      </div>
+
+      {children && <div className="mt-3">{children}</div>}
+
+    </div>
+
+  );
+
+}
+
+
+
+function Arrow() {
+
+  return (
+
+    <div className="flex justify-center">
+
+      <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <path d="M2 12H30" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+
+        <path d="M22 4L30 12L22 20" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+
+      </svg>
+
+    </div>
+
+  );
+
+}
+
+
+
+function ResultList({ items, onSelect }) {
+
+  if (!items || items.length === 0) return <div className="text-sm text-slate-500">No results yet.</div>;
+
+  return (
+
+    <div className="grid gap-2">
+
+      {items.map((p) => (
+
+        <div key={p.id} className="flex items-center gap-3 border rounded-lg p-2 hover:shadow cursor-pointer" onClick={() => onSelect(p)}>
+
+          <img src={p.image || "https://via.placeholder.com/80"} alt="r" className="w-12 h-12 object-cover rounded" />
+
+          <div className="flex-1">
+
+            <div className="font-medium">{p.name}</div>
+
+            <div className="text-sm text-slate-500">{p.price} • {p.seller}</div>
+
+          </div>
+
+          <div className="text-sm text-slate-500">View</div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  );
+
+}

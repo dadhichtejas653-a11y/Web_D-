@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height:200px ;
+            width: 200px ;
+            background-color: rgb(94, 247, 89);
+            margin: 50px;
+            animation-name: anime;
+            animation-delay: 2s;
+            animation-duration: 3s;
+            animation-iteration-count: 4;
+            animation-fill-mode: forwards;
+            
+        }
+        div:hover{
+            animation-play-state: paused;
+        }
+        button{
+              height:200px ;
+            width: 200px ;
+            background-color: rgb(94, 247, 89);
+            margin: 50px;
+            animation-name: anime;
+            animation-delay: 2s;
+            animation-duration: 3s;
+            animation-iteration-count: 4;
+            animation-fill-mode: forwards;
+        }
+        @keyframes anime{
+            0%{
+                height: 400px;
+                width: 400px;
+                background-color: rgb(41, 41, 245);
+            }
+            100%{
+                border-radius: 50%;
+                background-color: rgb(162, 76, 243);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+
+    </div>
+    <button>
+        HEHE
+    </button>
+</body>
+</html>

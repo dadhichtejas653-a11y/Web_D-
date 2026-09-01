@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo-area">
+                <span class="logo-icon">⚡</span>
+                <div class="logo-text">
+                    <h1>UserRegistry</h1>
+                    <p>Real-time Cloudflare Data Fetch</p>
+                </div>
+            </div>
+            <div class="status-badge" id="api-status">
+                <span class="status-dot pulsing"></span>
+                <span class="status-label">Connecting to API...</span>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <span class="stat-title">Total Records</span>
+                    <h2 class="stat-value" id="stat-total">-</h2>
+                </div>
+                <div class="stat-icon bg-primary">👥</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <span class="stat-title">Female Users</span>
+                    <h2 class="stat-value" id="stat-female">-</h2>
+                </div>
+                <div class="stat-icon bg-female">👩</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <span class="stat-title">Male Users</span>
+                    <h2 class="stat-value" id="stat-male">-</h2>
+                </div>
+                <div class="stat-icon bg-male">👨</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-info">
+                    <span class="stat-title">Other Genders</span>
+                    <h2 class="stat-value" id="stat-other">-</h2>
+                </div>
+                <div class="stat-icon bg-other">🌈</div>
+            </div>
+        </section>
+
+        <!-- Toolbar / Search and Filters -->
+        <section class="toolbar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Search by name, email or IP..." disabled>
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-gender="all">All</button>
+                <button class="filter-btn" data-gender="female">Female</button>
+                <button class="filter-btn" data-gender="male">Male</button>
+                <button class="filter-btn" data-gender="other">Others</button>
+            </div>
+        </section>
+
+        <!-- Main Content (User Grid) -->
+        <main class="content-area">
+            <!-- Loading Skeleton Grid -->
+            <div class="user-grid skeleton-active" id="user-grid">
+                <!-- Skeleton cards will be loaded here initially -->
+                <div class="user-card skeleton">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                </div>
+                <div class="user-card skeleton">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                </div>
+                <div class="user-card skeleton">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                </div>
+                <div class="user-card skeleton">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                </div>
+                <div class="user-card skeleton">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                </div>
+                <div class="user-card skeleton">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                </div>
+            </div>
+
+            <!-- Error State Container (Hidden by default) -->
+            <div class="error-container hidden" id="error-container">
+                <div class="error-icon">⚠️</div>
+                <h2>Oops! Something went wrong</h2>
+                <p id="error-message">We couldn't fetch the user registry from the remote Cloudflare endpoint.</p>
+                <button class="retry-btn" id="retry-btn">Retry Connection</button>
+            </div>
+
+            <!-- Empty State Container (Hidden by default) -->
+            <div class="empty-container hidden" id="empty-container">
+                <div class="empty-icon">📂</div>
+                <h2>No records found</h2>
+                <p>Try matching another keyword or filter criteria.</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>&copy; 2026 UserRegistry. Crafted with 💖 and minimal styling.</p>
+        </footer>
+    </div>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Google Sans', Arial, Helvetica, sans-serif;
+      background-color: #f1f3f4;
+      color: #202124;
+      padding: 30px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      margin-bottom: 15px;
+    }
+
+    .top-bar a {
+      text-decoration: none;
+      color: #1a73e8;
+      font-size: 14px;
+    }
+
+    .top-bar a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #202124;
+      font-weight: 500;
+    }
+
+    .form-box {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .form-box h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #202124;
+      font-weight: 500;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #5f6368;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      background-color: #f8f9fa;
+      color: #202124;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #1a73e8;
+      background-color: #fff;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .btn-add {
+      background-color: #1a73e8;
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      font-weight: 500;
+    }
+
+    .btn-add:hover {
+      background-color: #1557b0;
+    }
+
+    .btn-save {
+      background-color: #e6f4ea;
+      color: #137333;
+      border: 1px solid #a8d5b5;
+    }
+
+    .btn-save:hover {
+      background-color: #ceead6;
+    }
+
+    .btn-delete {
+      background-color: #fce8e6;
+      color: #c5221f;
+      border: 1px solid #f5b8b5;
+    }
+
+    .btn-delete:hover {
+      background-color: #f5c6c4;
+    }
+
+    .empty-msg {
+      text-align: center;
+      color: #80868b;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+    }
+
+    .task-table-head, .task-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1.6fr 0.9fr 1.3fr;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      min-width: 700px;
+    }
+
+    .task-table-head {
+      font-weight: bold;
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #e0e0e0;
+      font-size: 13px;
+      color: #5f6368;
+      letter-spacing: 0.3px;
+    }
+
+    .task-row {
+      border-bottom: 1px solid #f1f3f4;
+      font-size: 13px;
+    }
+
+    .task-row:last-child {
+      border-bottom: none;
+    }
+
+    .task-row:hover {
+      background-color: #f8f9fa;
+    }
+
+    .task-row input,
+    .task-row textarea,
+    .task-row select {
+      margin-bottom: 0;
+      font-size: 13px;
+      padding: 6px;
+      background-color: #f1f3f4;
+      border-color: #e0e0e0;
+    }
+
+    .task-row input:focus,
+    .task-row textarea:focus,
+    .task-row select:focus {
+      background-color: #fff;
+      border-color: #1a73e8;
+    }
+
+    .row-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .row-actions button {
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="top-bar">
+      <a href="/">&larr; Back to Home</a>
+    </div>
+
+    <h1>My To-Do List</h1>
+
+    <div class="form-box">
+      <h2>Add a New Task</h2>
+      <form action="/todos/add" method="POST">
+        <label for="task_name">Task Name</label>
+        <input type="text" id="task_name" name="task_name" minlength="3" required>
+
+        <label for="task_deadline">Deadline (Days)</label>
+        <input type="number" id="task_deadline" name="task_deadline" min="1" max="8" required>
+
+        <label for="description">Description (optional)</label>
+        <textarea id="description" name="description" minlength="4" rows="2"></textarea>
+
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority" required>
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <button type="submit" class="btn-add">Add Task</button>
+      </form>
+    </div>
+
+    <% if (!tasks || tasks.length === 0) { %>
+      <p class="empty-msg">No tasks yet. Add one above to get started.</p>
+    <% } else { %>
+      <div class="table-wrapper">
+        <div class="task-table-head">
+          <span>Task Name</span>
+          <span>Deadline</span>
+          <span>Description</span>
+          <span>Priority</span>
+          <span>Actions</span>
+        </div>
+
+        <% tasks.forEach(function(task) { %>
+          <form class="task-row" action="/todos/<%= task._id %>/update" method="POST">
+            <input type="text" name="task_name" value="<%= task.task_name %>" minlength="3" required>
+            <input type="number" name="task_deadline" value="<%= task.task_deadline %>" min="1" max="8" required>
+            <textarea name="description" minlength="4" rows="1"><%= task.description || '' %></textarea>
+            <select name="priority">
+              <option value="Low" <%= task.priority === "Low" ? "selected" : "" %>>Low</option>
+              <option value="Medium" <%= task.priority === "Medium" ? "selected" : "" %>>Medium</option>
+              <option value="High" <%= task.priority === "High" ? "selected" : "" %>>High</option>
+            </select>
+            <div class="row-actions">
+              <button type="submit" class="btn-save">Update</button>
+              <button type="submit" formaction="/todos/<%= task._id %>/delete" class="btn-delete">Done</button>
+            </div>
+          </form>
+        <% }); %>
+      </div>
+    <% } %>
+
+  </div>
+</body>
+</html>

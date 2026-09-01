@@ -1,0 +1,507 @@
+//debounce
+
+function debounce(fn, delay){
+  let timer;
+  return function(...args){
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  }
+}
+
+
+//async/await
+async function getData(){
+  try{
+    let res = await fetch("https://jsonplaceholder.typicode.com/users");
+    let data = await res.json();
+    console.log(data);
+  }catch(err){
+    console.log(err);
+  }
+}
+getData();
+
+
+//fetch api
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+
+
+
+//local storage 
+localStorage.setItem("user", "Tejas");
+console.log(localStorage.getItem("user"));
+localStorage.removeItem("user");
+
+
+
+
+//calculator 
+// CALCULATOR PROGRAM
+
+const display = document.getElementById("display");
+
+function appendToDisplay(input){
+    display.value += input;
+}
+
+function clearDisplay(){
+    display.value = "";
+}
+
+function calculate(){
+    try{
+        display.value = eval(display.value);
+    }
+    catch(error){
+        display.value = "Error";
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="calculator">
+        <input id="display" readonly>
+        <div id="keys">
+            <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="operator-btn">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()" class="operator-btn">C</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 95%);
+}
+#calculator{
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: hidden;
+}
+#display{
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: hsl(0, 0%, 20%);
+    color: white;
+}
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+}
+button{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsl(0, 0%, 40%);
+}
+button:active{
+    background-color: hsl(0, 0%, 50%);
+}
+.operator-btn{
+    background-color: hsl(35, 100%, 55%);
+}
+.operator-btn:hover{
+    background-color: hsl(35, 100%, 65%);
+}
+.operator-btn:active{
+    background-color: hsl(35, 100%, 75%);
+}
+
+
+//weather api
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather Forcast</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="app">
+    <h1> WEATHER </h1>
+    <input type="text" placeholder="Enter City Name">
+    <button onclick="weatherforcast()">Weather Report</button>
+
+    <main></main>
+</div>
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(135deg,#000000,#14273f,#183f4b);
+    overflow:hidden;
+}
+
+/* Animated Background */
+body::before{
+    position:absolute;
+    width:200%;
+    height:200%;
+    animation: bg 20s linear infinite;
+}
+
+
+
+
+.app{
+    width:340px;
+    padding:30px;
+    border-radius:25px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    box-shadow:
+      0 0 20px rgba(0,255,255,.4),
+      0 0 50px rgba(255,0,255,.3);
+    text-align:center;
+    color:white;
+    position:relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+
+h1{
+    font-size:26px;
+    color:#00fff7;
+    text-shadow: 0 0 10px #00fff7;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    margin:15px 0;
+    font-size:16px;
+    background: rgba(0,0,0,0.6);
+    color:#0ff;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,255,255,.6);
+}
+button {
+    padding: 14px 38px;
+    background: linear-gradient(45deg, black, purple);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgb(16, 8, 233);
+}
+
+button:hover {
+    animation: shake 0.3s infinite alternate;
+}
+
+@keyframes shake {
+    from { transform: rotate(1deg); }
+    to { transform: rotate(-1deg); }
+}
+
+main{
+    margin-top:20px;
+    font-size:18px;
+    text-shadow:0 0 5px cyan;
+}
+
+.temp{
+    font-size:40px;
+    font-weight:bold;
+    color:#ff00ff;
+    text-shadow:0 0 10px magenta;
+}
+
+.desc{
+    text-transform: uppercase;
+    color:#0ff;
+    letter-spacing:2px;
+}
+
+.hud{
+    font-size:14px;
+    margin-top:10px;
+    color: #00ffcc;
+}
+function weatherforcast(){
+    let input = document.querySelector("input");
+    let value = input.value.trim();
+
+    if(value == ""){
+        alert("Please enter city");
+        return;
+    }
+
+    const API_KEY = "cc78f577884fde13d63d61e54989e331";
+
+    async function fetchdata() {
+        try { 
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${API_KEY}&units=metric`;
+            let take = await fetch(url);
+            let convert = await take.json();
+
+            if (convert.cod !== 200) {
+                throw new Error("City not found");
+            }
+
+            display(convert);
+        }   
+        catch {
+            let main = document.querySelector("main");
+            main.innerHTML = `<h1>City not found</h1>`;
+        }
+    }
+
+    fetchdata();
+}
+
+function display(data){ 
+    let main = document.querySelector("main");  
+    
+    main.innerHTML = `
+        <img src="img.jpg" alt="Weather">
+        <section>
+            <h1>${data.name}</h1>
+            <h2>Temperature: ${data.main.temp} °C</h2>
+            <h3>Weather: ${data.weather[0].description}</h3>
+            <h3>Humidity: ${data.main.humidity}%</h3>
+            <h3>Wind Speed: ${data.wind.speed} m/s</h3>
+        </section>
+    `;
+}
+
+
+
+
+//to-do list
+let input = document.querySelector("input");
+console.log(input);
+
+let lol = document.querySelector("ol");
+console.log(lol);
+
+let button = document.querySelector("button");
+console.log(button);
+
+button.addEventListener("click", function() {
+    let li = document.createElement("li"); 
+    if (input.value == "") {
+        alert("Enter Value!");
+        return;
+    }
+    li.innerHTML = `${input.value} <button onclick="Delete(this)" class="del"> Delete </button>`;
+    lol.prepend(li);
+    input.value = "";
+});
+
+function Delete(el) {
+  el.parentElement.remove();
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <header>
+        <H1>To-Do List!</H1>
+        </header>
+        <div class="inputy">
+            <input class="input" type="text">
+            <button class="button">ADD</button>
+        </div>
+        <ol class="lol">
+        </ol>
+    </main>
+    
+    <script src="todo.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+//github api
+let url = "https://api.github.com/users/";
+function put() {
+    let part = document.querySelector("input");
+    let value = part.value;
+    let nurl = `${url}${value}`;
+    // console.log(nurl);
+    profile(nurl);
+
+
+};
+async function profile(url) {
+
+    try {
+        let data = await fetch(url);
+        let js_object = await data.json();
+        console.log(js_object);
+        display_on_screen(js_object);
+    
+    } catch (error) {
+        console.log(error);
+        
+
+    }
+};
+
+ function display_on_screen(ele) {
+    let selection = document.querySelector("#views");
+
+            selection.innerHTML = 
+
+                `
+                <h1>GitHub Profile</h1>
+
+                <img src="${ele.avatar_url}">
+                <h1> ${ele.name}</h1>
+                <h2>${ele.bio}</h2>
+                <h3>Followers : ${ele.followers} | Following : ${ele.following} </h3>
+                <p>  ${ele.company}</p>
+                <div id = "yoo"><p>Created : ${ele.created_at}</p> <p>Updated : ${ele.updated_at} </p></div>
+            </div>`
+};
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+        }
+        #uname{
+            padding-inline: 20px;
+            padding-block: 12px;
+            border-radius: 13px;
+
+        }
+        #saffak{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+        }
+        #views{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 98vh;
+            width: 100vw;
+            background-color: rgb(168, 206, 211);
+        }
+        img{
+            border-style: double;
+            border-radius: 20px;
+            border-color: black;
+            border-width: 8px;
+        }
+        #yoo{
+            display: flex;
+            gap : 50px;
+        }
+        
+        button{
+            margin-top: 30px;
+            padding-inline: 20px;
+            padding-block: 10px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <main>
+        
+        <div id="saffak">
+            <input id = "uname" type="text" placeholder="github_username_here">
+            <button type="submit" onclick= "put()" >Show Profile</button>
+        </div>
+        <div id="views">
+          
+
+        </div>
+    </main>
+
+
+    <script src="nhw.js"></script>
+    <!-- <script src="correct.js"></script> -->
+</body>
+</html>

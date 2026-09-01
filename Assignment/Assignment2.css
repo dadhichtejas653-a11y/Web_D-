@@ -1,0 +1,51 @@
+main{
+    background-image: url(https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg);
+    background-size: cover;
+    filter: blur(px);
+}
+
+nav{
+    text-align: right;
+}
+#A1{  
+    color: aliceblue;
+    background-color: red;
+    border: none;
+    border-radius: 2px;
+}
+select{
+    background-color: transparent;
+    color: aliceblue;
+}
+
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    margin: 2px;
+    font-size: xx-large;
+}
+p{
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+ font-size: x-small; 
+}
+div{
+    margin-top: 25%;
+    text-align: center;
+    color: aliceblue;
+}
+#fin{
+    background-color: red ;
+    color: aliceblue;
+    width: 100px;
+    height: 30px;
+    border: none;
+
+}
+#find{
+    background-color: rgba(0, 0, 0, 0.508);
+    color: aliceblue;
+    border: 1px solid rgba(0, 0, 0, 0.366);
+    width: 100px;
+    height: 30px;
+    margin-bottom: 30%;
+}

@@ -1,0 +1,240 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: border-box;
+
+}
+.nav-bar {
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+}
+.login {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-image: url(/public/image\ copy.png);
+    background-size: cover;
+}
+.nav-logo {
+    height: 40px;
+    width: 150px;
+    background-image: url(/public/medium1.png);
+    background-size: cover;
+}
+header div {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+#search {
+    height: 40px;
+}
+.header-first {
+    display: flex;
+    justify-content:space-evenly;
+    width: 500px;
+
+}
+.header-first input {
+    border: none;
+    border-radius: 30px;
+    width: 250px;
+    background-color: rgb(243, 243, 243);
+}
+.header-second {
+    width: 200px;
+    display: flex;
+    justify-content:space-around;
+}
+.header2 {
+    background-color: rgb(244, 244, 244);
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.header2 div a {
+    color: black;
+}
+.header2 div p {
+    font-weight:100;
+    margin-left: 450px;
+}
+.header2 div i {
+    margin-right: 15px;
+}
+
+
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+}
+.section1 div {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+
+}
+.main1 {
+    background-color: rgb(255, 255, 255);
+    padding-left: 20px;
+    font-weight:2px;
+    color: rgb(81, 81, 81);
+    padding-right: 70px;
+}
+.main2 {
+
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 100%;
+}
+.main3 {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 450px;
+}
+main {
+    display: flex;
+    margin-top: 30px;
+}
+.section2 div{
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+.section2 a {
+    margin-left: 30px;
+}
+.anchor {
+    margin-bottom: 10px;
+}
+.imgclass {
+    height: 20px;
+}
+.main3 h4 {
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+.divvv {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.star {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.divvv p {
+    font-size: small;
+}
+.main3 div h4 {
+    font-size: 15px;
+}
+.star p {
+    color: rgb(101, 101, 101);
+    font-size: small;
+}
+.this {
+    color: rgb(84, 84, 84);
+    font-size: small;
+    margin-bottom: 35px;
+}
+.star {
+    margin-bottom: 20px;
+}
+.box {
+    display: inline;
+    background-color: rgb(168, 168, 168);
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-weight:lighter;
+}
+.see {
+    margin-top: 30px;
+    font-size: small;
+    color: gray;
+}
+.profile {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-image: url(/public/profile.png);
+    background-size: cover;
+}
+.mainimage {
+    height: 110px;
+    width: 170px;
+    background-image: url(/public/life_you_love.png);
+    background-size: cover;
+}
+.myname {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+.reach {
+    display: flex;
+    align-items: center;
+}
+.firstreach {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.reach1 {
+    display: flex;
+    gap: 25px;
+    padding-bottom: 10px;
+}
+.tanu {
+    display: flex;
+    background-color: rgb(180, 180, 180);
+    justify-content: space-between;
+    gap: 120px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 7px;
+    flex-wrap: wrap;
+    padding: 0px 25px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.tanu a {
+    color: black;
+    padding-bottom: 20px;
+}
+.reach3 {
+    display: flex;
+    justify-content: space-between;
+
+    width: 650px
+}
+.reach4 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.icons {
+    display: flex;
+    gap: 20px;
+}
+.reach4 div {
+    display: flex;
+    gap: 5px;
+
+}
+.colorstar{
+    color: rgba(226, 111, 2, 0.836);
+}

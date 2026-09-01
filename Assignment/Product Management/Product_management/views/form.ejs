@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stockroom — Log New Stock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --border: #e0ddd6;
+    --border-focus: #1d9e75;
+    --text: #1a1a18;
+    --muted: #6b6a66;
+    --accent: #1d9e75;
+    --accent-fg: #ffffff;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Topbar ── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5vw;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--accent);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .brand-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .back-link {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  /* ── Page body ── */
+  .page {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 20px;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    margin-bottom: 24px;
+  }
+
+  .page-header .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .page-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .page-header .hint {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .card-section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── Form fields ── */
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .input-wrap {
+    position: relative;
+  }
+
+  .input-wrap .input-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    stroke: var(--muted);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  .input-wrap input {
+    width: 100%;
+    padding: 10px 12px 10px 34px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .input-wrap input:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.12);
+    background: #fff;
+  }
+
+  .input-wrap input::placeholder { color: #b0afa9; }
+
+  /* ── Actions ── */
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .btn svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .btn-outline {
+    background: var(--surface);
+    color: var(--muted);
+    border-color: var(--border);
+  }
+
+  .btn-outline:hover {
+    color: var(--text);
+    border-color: #b0afa9;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border-color: var(--accent);
+    flex: 2;
+  }
+
+  .btn-primary:hover { background: #189067; border-color: #189067; }
+
+  /* ── Responsive ── */
+  @media (max-width: 480px) {
+    .field-row { grid-template-columns: 1fr; }
+    .page { padding: 32px 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/" class="brand">
+    <span class="brand-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+    </span>
+    <span class="brand-name">Stockroom</span>
+  </a>
+  <a href="/getdata" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to ledger
+  </a>
+</header>
+
+<main class="page">
+  <div class="wrapper">
+
+    <div class="page-header">
+      <p class="eyebrow">Stock management</p>
+      <h1>Log new stock</h1>
+      <p class="hint">Add a product entry to the inventory ledger.</p>
+    </div>
+
+    <div class="card">
+      <p class="card-section-label">Product details</p>
+
+      <form action="/createdata" method="POST">
+        <div class="fields">
+
+          <div class="field-group">
+            <label for="name">Product name</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <input type="text" id="name" name="name" placeholder="e.g. Wireless Mouse" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="category">Category</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24"><path d="M4 20h4l10.5-10.5a2.828 2.828 0 1 0-4-4L4 16v4Z"/></svg>
+              <input type="text" id="category" name="category" placeholder="e.g. Electronics" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="company">Company</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <input type="text" id="company" name="company" placeholder="e.g. Logitech" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="price">Price (₹)</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <input type="number" id="price" name="price" placeholder="0.00" min="0" step="0.01" required>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="stock">Stock qty</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                <input type="number" id="stock" name="stock" placeholder="0" min="0" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a href="/getdata" class="btn btn-outline">Cancel</a>
+            <button type="submit" class="btn btn-primary">
+              <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              Save to ledger
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

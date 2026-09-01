@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assingment 2</title>
+  </head>
+  <h1>HTML-ONLY: Mega Application Form</h1>
+  <body>
+    <p>
+      <b>Rules:</b>Use only valid inputs. All starred fields are required. Read
+      titles for hints. No Javascript.
+    </p>
+    <fieldset>
+      <legend>Account</legend>
+      <label for="">*Username</label>
+      <br />
+      <input required type="text" />
+      <br /><br />
+      <label for="">*Password</label>
+      <br />
+      <input required type="text" />
+      <br /><br />
+      <label for="">*Applying as</label>
+      <br />
+      <select required name="" id="">
+        <option value="">Choose One</option>
+        <option value="">Student</option>
+        <option value="">Teacher</option>
+        <option value="">Job Seeker</option>
+      </select>
+      <br />
+    </fieldset>
+    <fieldset>
+      <legend>Personl Information</legend>
+      <label for="">*Full Name</label>
+      <br />
+      <input required type="text" />
+      <br /><br />
+      <label for="">*Date of Birth</label>
+      <br />
+      <input required type="date" name="" id="" />
+      <br /><br />
+      <label for="*Gender">*Gender</label>
+      <br />
+      <input  type="radio" name="gender" id="" />Female
+      <input  type="radio" name="gender" id="" />Male
+      <input  type="radio" name="gender" id="" />Other 
+      <br /><br />
+      <label for="">Govt ID (Pan Format)</label>
+      <br />
+      <input placeholder="ABCDE123F" type="text" />
+    </fieldset>
+    <fieldset>
+      <legend>Contact & Address</legend>
+      <label for="">*Email</label>
+      <br />
+      <input
+        required
+        placeholder="you@example.com"
+        type="text"
+        pattern="*.@gmail.com"
+      />
+      <br /><br />
+      <label for="">*Phone (INDIA)</label>
+      <br />
+      <input required type="tel" placeholder="+91 9XXXXXXXXX" />
+      <br /><br />
+      <label for="">Portfolio URL (HTTPS only)</label>
+      <br />
+      <input type="url" placeholder="https://example.com" />
+      <br /><br />
+      <label for="">*Country</label>
+      <br />
+      <input required type="text" placeholder="Ex:INDIA" />
+      <br /><br />
+      <label for="">State/UT (INDIA)</label>
+      <br />
+      <input type="text" placeholder="Ex:GUJARAT" />
+      <br /><br />
+      <label for="">PIN CODE</label>
+      <br />
+      <input type="number" placeholder="6-Digit PIN" />
+      <br /><br />
+      <label for="">*Address</label>
+      <br />
+      <textarea
+        name=""
+        id=""
+        placeholder="Flat / House No,Street, Area"
+        required
+      ></textarea>
+      <br /><br />
+    </fieldset>
+    <fieldset>
+      <legend>Education & Skills</legend>
+      <label for="">*Highest Qualification</label>
+      <br />
+      <select name="" id="" required>
+        <option value="">Select One</option>
+        <option value="">12th Pass</option>
+        <option value="">10th Pass</option>
+        <option value="">Graduation</option>
+        <option value="">Post-Graduates</option>
+      </select>
+      <br /><br />
+      <label for="">CGPA (0-10)</label>
+      <br />
+      <input type="text" placeholder="Ex:8.23" />
+      <br /><br />
+      <label for="">*Primary Skill</label>
+      <br />
+      <select name="" id="">
+        <option value="">Pick One</option>
+        <option value="">UI/UX Design</option>
+        <option value="">Machine Learning</option>
+        <option value="">Web Development</option>
+        <option value="">Data Science</option>
+        <option value="">Data Analyst</option>
+      </select>
+      <br /><br />
+      <label for="">Other Skill (Choose Multiple)</label> 
+      <br /> 
+      <select name="" multiple size="5" id="">
+        <option value="">HTML</option>
+        <option value="">CSS</option>
+        <option value="">Javascript</option>
+        <option value="">React</option>
+        <option value="">TypeScript</option>
+        <option value="">MySQL</option>
+        <option value="">Django</option>
+        <option value="">Flask</option>
+        <option value="">Github</option>
+        <option value="">Bootstrap</option>
+        <option value="">Node.Js</option>
+      </select>
+      <br><br>
+      <label for="">Quick Add Via Datalist</label>
+      <br>
+      <input list="Skills" >
+      <datalist id="Skills">
+        <option value="Cybersecurity"></option>
+        <option value="Data Science"></option>
+        <option value="Clod Computing"></option>
+        <option value="Mobile App Development"></option>
+        <option value=""></option>
+        </datalist>
+    </fieldset>
+    <fieldset>
+      <legend>Availability & Preferences</legend>
+      <label for="">*Earliest Start Date</label>
+      <br>
+      <input required type="date" name="" id="">
+      <br><br>
+      <label for="">Preferred Interview Time</label>
+      <br>
+      <input type="time" name="" id="">
+      <br><br>
+      <label for="">Time Zone</label>
+      <br>
+      <select name="" id="">
+        <option value="">Select one</option>
+        <option value="">Asia/Kolkata (IST)</option>
+        <option value="">Asia/Nepal</option>
+        <option value="">Asia/Arabia Daylioght Time</option>
+        <option value="">Australia/Australian Central Daylight Time </option>
+
+      </select>
+      <br><br>
+      <label for="">Brand Color Preference</label>
+      <br>
+      <input type="color" name="" id="">
+      <br><br>
+      <label for="">Expected CTC (Lakhs/Year)</label>
+      <br>
+      <input type="range" name="" id="">
+      <br>
+      <p>(We know you want 40 😉)</p>
+
+    </fieldset>
+    <fieldset>
+      <legend>Documents</legend>
+      <label for="">*Upload Resume (PDF)</label>
+      <br>
+      <input required type="file" name="" id="">
+      <br><br>
+      <label for="">*Profile Photo(JPG/PNG)</label>
+      <br>
+      <input required type="file" name="" id="">
+    </fieldset>
+    <fieldset>
+      <legend>Short Answers</legend>
+      <label for="jj">*Why should we consider you?</label>
+      <br>
+      <textarea placeholder="Write at least 30 characters..." name="" id=""></textarea>
+      <br><br>
+      <label for="">Referral Code(Pattern:ABC-1234)</label>
+      <br>
+      <input placeholder="ABC-1234" type="text">
+    </fieldset>
+    <details>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nulla inventore placeat cumque totam doloremque eius numquam vitae impedit distinctio hic quos ad eligendi, commodi accusantium culpa officiis sed eos eveniet fugiat tempore ab. Voluptatem facere cumque aliquam sequi incidunt delectus expedita, officiis commodi quae, corrupti ut ratione eligendi esse repudiandae dolor velit sed et provident est quisquam consequatur perspiciatis, in recusandae exercitationem. Quis, aspernatur vel minima sunt aut eveniet sit hic pariatur dolor consequuntur modi enim nam quasi recusandae asperiores nisi ipsa eum perspiciatis! Quisquam voluptatibus atque, delectus soluta debitis non similique corrupti rem, architecto, impedit molestiae a ipsam maxime cupiditate libero quo optio. Rerum vitae vel dolores repellat! Assumenda vel sint culpa ea accusantium. Rerum ullam vitae molestiae distinctio! Itaque quaerat quasi iure necessitatibus vitae illum delectus nemo sunt libero qui recusandae reprehenderit alias, saepe consequatur error ab perspiciatis aspernatur totam incidunt numquam, atque asperiores? Quam molestiae nihil eaque alias laborum consectetur, aliquam, aperiam ab enim dicta dolores et tempora voluptatum adipisci, maiores similique assumenda modi facilis totam cumque. Repellat quis, nostrum accusamus necessitatibus est, ullam delectus assumenda sed dignissimos reiciendis error. Quo neque explicabo molestias magni possimus quaerat aperiam earum minima eveniet odit, eum suscipit nostrum odio! Itaque ea aliquid, iure modi, sunt, deleniti ipsam provident quam quia necessitatibus cum praesentium architecto asperiores consequatur eum. Ratione provident recusandae eum! Repudiandae eius facere praesentium natus veniam corrupti molestias numquam tempora inventore. Impedit laudantium incidunt, officia dignissimos aliquid eveniet obcaecati. Impedit dignissimos provident rerum eos ex dolores voluptatem tempora recusandae quod, id doloribus repudiandae optio voluptas neque odit sequi distinctio quos. Ea quos laboriosam consequuntur nihil dicta, ab nisi, ad libero quo incidunt a beatae quae quisquam iure quia voluptatibus ut vel excepturi similique. A aliquid aspernatur blanditiis aperiam excepturi, voluptas officiis repellat expedita, vitae aut possimus dolore distinctio? Consequatur, id. Laboriosam, mollitia ipsa. Necessitatibus laboriosam neque repellat tenetur repellendus mollitia exercitationem facere veniam! Ullam dignissimos quis qui nemo harum reiciendis placeat! Nemo reiciendis autem dicta libero rerum similique, repudiandae adipisci vitae maiores fugiat eaque porro illum eum molestiae voluptas dolore temporibus omnis facere eos cumque non aperiam commodi aliquid. Atque, magnam architecto, praesentium nulla quo inventore voluptatum dolorem deleniti facilis illo odit dolor culpa accusamus distinctio perspiciatis doloremque. Excepturi a voluptatum sit similique, praesentium facilis magnam pariatur cum ipsa possimus voluptate ea officia vero eaque veniam, architecto totam obcaecati error illo delectus earum modi corrupti necessitatibus. Hic voluptate molestiae expedita eos, suscipit alias magnam ea enim maiores nobis tenetur. Sequi repellendus porro consectetur commodi quis ex aliquid adipisci exercitationem quasi, omnis iure dolores? Odit ullam eveniet molestiae, numquam quas tempora unde quae quasi, amet earum similique maxime sunt optio adipisci deleniti dolorum perferendis officia delectus. Tempore omnis quidem accusamus corporis suscipit maxime inventore culpa id eos fuga sequi, totam nam praesentium, consequatur voluptatem deserunt accusantium quas porro cupiditate laudantium animi nesciunt. Corrupti natus odit modi reiciendis dicta nesciunt quos, ipsum ea unde numquam, quas placeat sed voluptate, ab vel non voluptatem reprehenderit assumenda voluptatibus fugiat. Sit, facilis mollitia commodi quasi tenetur deleniti, distinctio labore laudantium, nisi tempora nihil ea nemo expedita? Ullam odit velit quas sapiente tempore commodi laudantium animi totam amet soluta est cumque autem nisi laborum repudiandae quaerat quisquam laboriosam, facilis deserunt! Explicabo beatae et possimus molestiae, porro odit facere vel ut velit praesentium incidunt commodi ullam ipsa ab temporibus architecto maxime modi. Ea praesentium, placeat hic repudiandae deserunt nisi ipsum beatae aspernatur. Sunt praesentium impedit corporis, nihil quam inventore architecto optio natus eius libero tenetur quod expedita sit alias minus! Quo non tempore, ipsam numquam aspernatur facilis voluptate atque dolorem omnis iure adipisci culpa facere nobis dolores ratione possimus veritatis consectetur esse nam quos vero explicabo, illo, sint quasi! Dolor officiis ipsam consequuntur porro deleniti, vitae voluptatem earum distinctio beatae nam voluptas sunt facere, perferendis quisquam. Repellendus labore fugiat, earum nam corporis explicabo quam ullam necessitatibus nobis temporibus similique harum beatae voluptatibus voluptate fuga tenetur. Molestiae minima quia, perferendis labore eos, eum soluta nisi ex animi cumque, consequuntur laboriosam et placeat voluptatibus repudiandae quisquam necessitatibus omnis illum mollitia sequi esse maxime minus. Sint nostrum sapiente repudiandae ullam iure exercitationem libero alias vitae corporis fugiat mollitia quis, rem explicabo voluptatem quo! Quos molestiae cum minima omnis, reiciendis maxime atque sit possimus voluptates aperiam iure placeat deserunt ratione sunt quidem pariatur ad a exercitationem ea. Minima deleniti optio saepe adipisci consectetur, voluptates magni. Ipsam nam ab rerum praesentium explicabo quia, fugit eum. Quisquam, sint doloribus! Quidem, omnis. Asperiores, vel commodi, dignissimos totam, praesentium odio dolor sunt accusantium labore expedita laudantium libero nam veritatis consequatur eos facere exercitationem? Fugiat rem quasi autem aperiam. Facilis est quo voluptatum amet deserunt animi! Sunt quidem, officiis recusandae maiores perspiciatis voluptatem natus fugiat? Voluptas hic voluptatibus est distinctio! Quisquam culpa beatae similique ab dolorum totam mollitia doloribus, a distinctio quae iure aperiam veniam veritatis et explicabo accusamus voluptatem aut corrupti consequuntur eveniet tempore ex corporis placeat vel! Eum, asperiores deserunt perspiciatis repellendus labore maiores cum sint sunt adipisci maxime aut fugiat corrupti dolorem excepturi voluptates praesentium vero rerum pariatur deleniti atque alias. Quasi, nobis quia exercitationem cum dolorum ad enim quae natus consequuntur cumque? Voluptas ullam ratione magni inventore, dignissimos atque beatae, quisquam debitis labore praesentium aliquam quod placeat aliquid natus corrupti ex distinctio? Minima, quo reiciendis saepe voluptas possimus voluptate in aliquid modi porro explicabo dolorem, natus corporis. Officiis ipsum saepe delectus in fugiat vitae, voluptate, voluptas provident aperiam rerum at maxime placeat architecto nisi. Dicta ullam non deleniti quasi fugiat suscipit ipsa sed iste temporibus, sequi fugit soluta illo debitis, nam asperiores possimus perspiciatis! Omnis explicabo pariatur dolorem quas quod tempora deleniti accusamus nisi neque. Vel, autem. Cupiditate, maxime aut mollitia iste aliquam harum eaque nesciunt. Veritatis consequatur nemo harum at totam voluptatem atque eius dolorum dignissimos, minus, magnam culpa praesentium similique nulla, cumque provident? Velit libero ipsam harum incidunt, illo earum quidem nobis molestiae? Debitis molestias distinctio doloribus at ipsa quis, veritatis optio fugiat facere numquam quisquam ullam animi, tempora, repellat nesciunt nulla assumenda unde vero neque excepturi corporis!
+      <summary>
+        Optional Survey (Expand)
+      </summary>
+
+      <p></p>
+
+    </details>
+    <br><br>
+    <input type="checkbox" name="" id="">* I confirm all information is accurate and I accept the terms.
+    <br><br>
+    <input type="submit" value="Submit Application">
+    <input type="reset" value="Reset">
+    <hr>
+    
+    <p>
+      Made with 🫶🏻 using only HTML, 5 elements and built-in validation.
+    </p>
+
+
+  </body>
+</html>

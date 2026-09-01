@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+main {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1e3a8a;
+    font-size: 2rem;
+}
+
+.inputy {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #1d4ed8;
+}
+
+.button:active {
+    transform: scale(0.97);
+}
+
+#hehe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+#hehe button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+}
+
+#hehe1 {
+    background: #16a34a;
+}
+
+#hehe2 {
+    background: #f59e0b;
+}
+
+#hehe3 {
+    background: #dc2626;
+}
+
+.lol {
+    padding-left: 22px;
+}
+
+.lol li {
+    background: #f8fafc;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: #334155;
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}

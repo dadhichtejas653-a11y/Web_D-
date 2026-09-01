@@ -1,0 +1,36 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+    color: bisque;
+}
+header{
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    gap: 120px;
+}
+#bb{
+   display: flex;
+   justify-content: center;
+    gap: 70px;
+   align-items: center;
+}
+button{
+    border-radius: 20px;
+    color: rgb(77, 112, 251);
+    background-color: rgb(220, 161, 255);
+    height: 40px;
+    width: 80px;
+    border: 0px;
+
+
+}

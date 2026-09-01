@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple.com</title>
+    <link rel="stylesheet" href="Apple.css">
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav id="header">
+                <p><a href="" id="a">Store</a></p>
+                <p><a href="" id="a">Mac</a></p>
+                <p><a href="" id="a">iPad</a></p>
+                <p><a href="" id="a">iPhone</a></p>
+                <p><a href="" id="a">Watch</a></p>
+                <p><a href="" id="a">AirPods</a></p>
+                <p><a href="" id="a">TV & Home</a></p>
+                <p><a href="" id="a">Entertainment</a></p>
+                <p><a href="" id="a">Accessories</a></p>
+                <p><a href="" id="a">Support</a></p>
+            </nav> 
+        </div>
+    </header>
+
+    <main>
+
+        <p class="aa">Last chance to get AirPods or an eligible accessory of your choice when you buy Mac or iPad with
+            education savings.* Offer ends on 30 Sep.<a id="a">Shop </a> </p>
+
+        <div class="bb">
+
+
+            <section class="tt">
+                <h1>Gifts full of joy.</h1>
+                <p>Enjoy up to ₹10000 instant cashback on your favourite products </p>
+                <p>with eligible cards.Plus up to 12 months of No Cost EMI.</p>
+                <button id="bb">Shop</button>
+
+            </section>
+
+        </div>
+
+        <div class="cc">
+
+            <section id="jj">
+
+                <h1>iPhone 17 Pro</h1>
+                <h3>All out Pro</h3>
+                <button id="ll">Learn More</button>
+                <button id="dd">Buy</button>
+            </section>
+        </div>
+
+        <div class="zz">
+            <h1>iPhone Air</h1>
+            <h3>The thinnest iPhone ever.</h3>
+            <br>
+            <h3>With the power of pro inside.</h3>
+            <section>
+                <button id="ff">Learn more</button> <button id="gg">Buy</button>
+            </section>
+        </div>
+
+        <div class="dd">
+
+        </div>
+
+        <section class="xx">
+
+            <section>
+
+                <h1>iPhone 17</h1>
+                <p>Magichromatic</p>
+                <button id="ff">Learn more</button> <button id="gg">Buy</button>
+                <div class="ee">
+
+                </div>
+            </section>
+
+
+            <section>
+                <h1>Airpods Pro 3</h1>
+                <p>The world's best in-ear</p>
+                <p>Active Noise cancellation</p>
+                <button id="ff">Learn more</button> <button id="gg">Buy</button>
+                <div class="ff">
+
+
+
+                </div>
+            </section>
+        </section>
+
+        <section class="xx">
+
+            <section>
+
+                <h1>WATCH SERIES 11</h1>
+                <p>The ultimate watch for a healthy life.</p>
+                <button id="ff">Learn more </button> <button id="gg">Buy</button>
+
+                <div class="gg">
+
+                </div>
+
+            </section>
+
+            <section>
+
+                <h1>WATCH SE 3</h1>
+                <p>Walk it. Talk it. Track it. Love it.</p>
+                <button id="ff">Learn more</button> <button id="gg">Buy</button>
+
+                <div class="hh">
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <section class="xx">
+
+            <section id="mm">
+
+                <h1>WATCH ULTRA 3</h1>
+                <p>Personal beast.</p>
+                <buton id="ff">Learn more</buton> <button id="kk">Buy</button>
+
+
+                <div class="ii">
+
+                </div>
+            </section>
+
+            <section>
+
+                <h1>Trade In</h1>
+                <p>Upgrade and save.</p>
+                <p>It's that easy.</p>
+                <button id="ff">Get your estimate</button>
+                <div class="jj">
+
+                </div>
+            </section>
+        </section>
+
+
+
+        <section id="aa">
+
+            <p>*Apple Education Pricing is available to current and newly accepted college students and their parents,
+                as well as teachers and staff at all levels. For more information, visit <a
+                    href="">apple.com/in-edu/store.</a></p>
+
+            <p>◊Qualified Purchasers can receive Promotion Savings when they purchase an eligible Mac or iPad with their
+                choice of a Promotion Product at a Qualifying Location. Customers will be charged for all items in their
+                cart, including the Promotion Product. Only one Promotion Product can be obtained per eligible Mac or
+                iPad per Qualified Purchaser. The offer is subject to availability, while supplies last. View full terms
+                and conditions of offer <a>here.</a></p>
+            <p>‡Includes instant cashback and No Cost EMI.</p>
+            <p>No Cost EMI is available with the purchase of an <a>eligible product</a> made using qualifying cards on
+                3-, 6-, 9- or 12-month tenures from most leading card issuers. The 9- and 12-month tenures of No Cost
+                EMI are available until 23 October 2025. Eligible AirPods, HomePod, Beats and the iPhone Air MagSafe
+                Battery are available with No Cost EMI on 3- and 6-month tenures only. Monthly pricing is rounded to the
+                nearest rupee. Exact pricing will be provided by your card issuer, subject to your card issuer’s terms
+                and conditions. Minimum order spend applies as per your card issuer’s threshold. No Cost EMI is not
+                available to business customers and cannot be combined with Apple Store for Education or Corporate
+                Employee Purchase Plan pricing. Card eligibility is subject to terms and conditions between you and your
+                card issuer. Offer may be revised or withdrawn at any time without any prior notice.<a> Terms apply.</a>
+            </p>
+            <p>Instant cashback is available with the purchase of an <a>eligible product</a> with qualifying American
+                Express, Axis Bank and ICICI Bank cards only. Minimum transaction value of ₹10001 applies.<a>Click
+                    here</a>to see instant cashback amounts and eligible devices. Instant cashback is available for up
+                to two orders per rolling 90-day period with an eligible card. Card eligibility is subject to terms and
+                conditions between you and your card issuer. Total transaction value is calculated after any trade-in
+                credit or eligible discount is applied. Any subsequent order adjustment(s) or cancellation(s) may result
+                in instant cashback being recalculated, and any refund may be adjusted to account for instant cashback
+                clawback; this may result in no refund being made to you. Offer may be revised or withdrawn at any time
+                without any prior notice. <a>Additional terms apply</a>. Instant cashback is not available to business
+                customers and cannot be combined with Apple Store for Education or Corporate Employee Purchase Plan
+                pricing. Multiple separate orders cannot be combined for instant cashback.
+            </p>
+            <p>
+                1. Testing conducted by Apple in July 2025 using AirPods Pro 3 paired with iPhone 16 with pre-release
+                AirPods firmware and iOS 26. Noise reduction was tested in accordance with IEC 60268-24. Comparison made
+                against the best-selling wireless in-ear headphones commercially available at the time of testing.
+                Performance depends on device settings, environment and many other factors.
+            </p>
+            <p>A subscription is required for Apple TV+.</p>
+
+            <p>Features are subject to change. Some features, applications and services may not be available in all
+                regions or all languages.</p>
+
+        </section>
+
+    </main>
+
+    <footer>
+<div id="kg">
+                  
+                <ul type="none">
+                    <li><b>Shop and Learn</b></li>
+                    <li>Store</li>
+                    <li>Mac</li>
+                    <li>iPad</li>
+                    <li>iPhone</li>
+                    <li>Watch</li>
+                    <li>AirPods</li>
+                    <li>TV & Home</li>
+                    <li>AirTag</li>
+                    <li>Accessories</li>
+                    <li>Gift Cards</li>
+                    <li><b>Apple Wallet</b></li>
+                    <li>Wallet</li>
+                </ul>
+
+                <ul type="none">
+                    <li><b>Account</b></li>
+                    <li>Manage Your Apple Account</li>
+                    <li>Apple Store Account</li>
+                    <li>iCloud.com</li>
+                    <li><b>Entertainment</b></li>
+                    <li>Apple One</li>
+                    <li>Apple TV+</li>
+                    <li>Apple Music</li>
+                    <li>Apple Arcade</li>
+                    <li>Apple Podcasts</li>
+                    <li>Apple Books</li>
+                    <li>App Store</li>
+                </ul>
+
+                <ul type="none">
+                    <li><b>Apple Store</b></li>
+                    <li>Find a Store</li>
+                    <li>Genius Bar</li>
+                    <li>Today at Apple</li>
+                    <li>Group Reservations</li>
+                    <li>Apple Camp</li>
+                    <li>Apple Trade In</li>
+                    <li>Ways to buy</li>
+                    <li>Recycling Programme</li>
+                    <li>Order Status</li>
+                    <li>Shopping Help</li>
+                    
+                    <li></li>
+
+                </ul>
+
+                <ul type="none">
+                    <li><b>For Business</b></li>
+                    <li>Apple and Business</li>
+                    <li>Shop for Business</li>
+                    <li><b>For Education</b></li>
+                    <li>Apple and Education</li>
+                    <li>Shop for Education</li>
+                    <li>Shop for University</li>
+                    <li><b>For Healthcare</b></li>
+                    <li>Apple and Healthcare</li>
+                    <li><b>For Government</b></li>
+                    <li>Apple and Government</li>
+                </ul>
+
+                <ul type="none">
+                    <li><b>Apple Values</b></li>
+                    <li>Accessibility</li>
+                    <li>Education</li>
+                    <li>Environment</li>
+                    <li>Privacy</li>
+                    <li>Supply Chain Innovation</li>
+                    <li><b>About Apple</b></li>
+                    <li>Newsroom</li>
+                    <li>Apple Leadership</li>
+                    <li>Career Opportunities</li>
+                    <li>Investors</li>
+                    <li>Ethics & Compliance</li>
+                    <li>Events</li>
+                    <li>Contact Apple</li>
+                </ul>
+
+              </div>
+
+                <main>
+                    <p>More ways to shop:<a href="">Find an Apple Store</a>or <a href="">other retailer</a> near you.Or call <a href="">000800 040 1966</a></p>
+                </main>
+                <footer>
+                    <p>Copyright ©️ 2025 Apple Inc. All rights reserved.           <a href="">Privacy Policy | Terms of Use | Sales Policy | Legal | Site Map</a></p>
+                </footer>
+
+    </footer>
+</body>
+
+</html>

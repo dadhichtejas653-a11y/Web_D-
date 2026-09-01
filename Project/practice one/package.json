@@ -1,0 +1,227 @@
+{
+  "name": "practice-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^4.22.2",
+    "mongoose": "^9.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
+
+
+
+
+app.js
+jsconst express = require('express')
+const mongoose = require('mongoose')
+
+const app = express()
+
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: true }))
+
+mongoose.connect('mongodb://localhost:27017/student_admin')
+  .then(() => console.log('MongoDB Connected!'))
+  .catch((err) => console.log('DB failed:', err))
+
+const studentRoutes = require('./routes/studentsRoutes.js')
+
+app.get('/', function(req, res) {
+  res.send('Server is running')
+})
+
+app.use('/students', studentRoutes)
+
+app.listen(8080, '0.0.0.0', function() {
+  console.log('Server running on port 8080')
+})
+
+Models/student.js
+jsconst mongoose = require('mongoose')
+
+const studentSchema = new mongoose.Schema({
+  name: String,
+  rollNumber: String,
+  course: String,
+  year: Number
+})
+
+const Student = mongoose.model('Student', studentSchema)
+
+module.exports = Student
+
+Controllers/studentController.js
+jsconst Student = require('../Models/student.js')
+
+// GET all students
+const getAllStudents = async (req, res) => {
+  try {
+    const students = await Student.find()
+    res.render('students', { students })
+  } catch (error) {
+    res.send('Error: ' + error)
+  }
+}
+
+// GET form to add new student
+const getNewStudentForm = async (req, res) => {
+  res.render('new')
+}
+
+// POST create new student
+const createStudent = async (req, res) => {
+  try {
+    const student = new Student(req.body)
+    await student.save()
+    res.redirect('/students')
+  } catch (error) {
+    res.send('Error: ' + error)
+  }
+}
+
+// GET form to edit student
+const getEditStudentForm = async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id)
+    res.render('edit', { student })
+  } catch (error) {
+    res.send('Error: ' + error)
+  }
+}
+
+// POST update student
+const updateStudent = async (req, res) => {
+  try {
+    await Student.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect('/students')
+  } catch (error) {
+    res.send('Error: ' + error)
+  }
+}
+
+// GET delete student
+const deleteStudent = async (req, res) => {
+  try {
+    await Student.findByIdAndDelete(req.params.id)
+    res.redirect('/students')
+  } catch (error) {
+    res.send('Error: ' + error)
+  }
+}
+
+module.exports = {
+  getAllStudents,
+  getNewStudentForm,
+  createStudent,
+  getEditStudentForm,
+  updateStudent,
+  deleteStudent
+}
+
+routes/studentsRoutes.js
+jsconst express = require('express')
+const router = express.Router()
+
+const {
+  getAllStudents,
+  getNewStudentForm,
+  createStudent,
+  getEditStudentForm,
+  updateStudent,
+  deleteStudent
+} = require('../Controllers/studentController.js')
+
+router.get('/', getAllStudents)
+router.get('/new', getNewStudentForm)
+router.post('/', createStudent)
+router.get('/:id/edit', getEditStudentForm)
+router.post('/:id/update', updateStudent)
+router.get('/:id/delete', deleteStudent)
+
+module.exports = router
+
+views/students.ejs
+html<!DOCTYPE html>
+<html>
+<head>
+  <title>All Students</title>
+</head>
+<body>
+  <h1>All Students</h1>
+  <a href="/students/new">Add New Student</a>
+  <br><br>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Roll Number</th>
+      <th>Course</th>
+      <th>Year</th>
+      <th>Actions</th>
+    </tr>
+    <% students.forEach(function(student) { %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.rollNumber %></td>
+      <td><%= student.course %></td>
+      <td><%= student.year %></td>
+      <td>
+        <a href="/students/<%= student._id %>/edit">Edit</a>
+        <a href="/students/<%= student._id %>/delete">Delete</a>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
+
+views/new.ejs
+html<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Student</title>
+</head>
+<body>
+  <h1>Add New Student</h1>
+  <form action="/students" method="POST">
+    <input type="text" name="name" placeholder="Name" required /><br><br>
+    <input type="text" name="rollNumber" placeholder="Roll Number" required /><br><br>
+    <input type="text" name="course" placeholder="Course" required /><br><br>
+    <input type="number" name="year" placeholder="Year" required /><br><br>
+    <button type="submit">Add Student</button>
+  </form>
+  <br>
+  <a href="/students">Back to list</a>
+</body>
+</html>
+
+views/edit.ejs
+html<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Student</title>
+</head>
+<body>
+  <h1>Edit Student</h1>
+  <form action="/students/<%= student._id %>/update" method="POST">
+    <input type="text" name="name" value="<%= student.name %>" required /><br><br>
+    <input type="text" name="rollNumber" value="<%= student.rollNumber %>" required /><br><br>
+    <input type="text" name="course" value="<%= student.course %>" required /><br><br>
+    <input type="number" name="year" value="<%= student.year %>" required /><br><br>
+    <button type="submit">Update Student</button>
+  </form>
+  <br>
+  <a href="/students">Back to list</a>
+</body>
+</html>

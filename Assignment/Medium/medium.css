@@ -1,0 +1,32 @@
+.ii{
+    height: 30px;
+    width: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#aa{
+    padding-top: 10px;
+    display: flex;
+    border-radius: 20px;
+    background: #F9F9F9;
+    height: 42px;
+    width: 220px;
+    padding-left: 10px;
+    gap: 15px;
+}
+#a1{
+    justify-content: space-between;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.head{
+    display: flex;
+    gap: 50px;
+}
+input{
+    border: none;
+    background: #F9F9F9;
+}

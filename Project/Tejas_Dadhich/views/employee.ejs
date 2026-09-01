@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Employee</h1>
+    <a href=""/employee/new>Add New Employee</a>
+    <br><br>
+    <table border="1">
+        <tr>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Experience</th>
+            <th>Designation</th>
+            <th>Joining Date</th>
+        </tr>
+        <% employee.forEach(function(employee) { %>
+            <tr>
+                <td><%=employee.Employee_name %></td>
+                <td><%= employee.Email %></td>
+                <td><%= employee.Department %></td>
+                <td><%-= employee.Salary %></td>
+                <td><%= employee.Experience %></td>
+                <td><%= employee.Designation %></td>
+                <td><%= employee.Joining_Date %></td>
+                <td>
+                    <a href="/employee/<%= employee._id %>/edit">Edit</a>
+                    <a href="/employee/<%= employee._id %>/delete">Delete</a>
+                </td>
+            </tr>
+
+        <% }) %>
+    </table>
+</body>
+</html>

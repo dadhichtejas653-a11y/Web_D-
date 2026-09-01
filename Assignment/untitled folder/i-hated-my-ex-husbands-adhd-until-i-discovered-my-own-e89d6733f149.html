@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium</title>
+    <link rel="icon" href="/public/image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    border: border-box;
+
+}
+.nav-bar {
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+}
+.login {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-image: url(/public/image\ copy.png);
+    background-size: cover;
+}
+.nav-logo {
+    height: 40px;
+    width: 150px;
+    background-image: url(Screenshot\ 2025-10-26\ at\ 11.35.00\ PM.png);
+    background-size: cover;
+}
+header div {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+#search {
+    height: 40px;
+}
+.header-first {
+    display: flex;
+    justify-content:space-evenly;
+    width: 500px;
+
+}
+.header-first input {
+    border: none;
+    border-radius: 30px;
+    width: 250px;
+    background-color: rgb(243, 243, 243);
+}
+.header-second {
+    width: 200px;
+    display: flex;
+    justify-content:space-around;
+}
+.header2 {
+    background-color: rgb(244, 244, 244);
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.header2 div a {
+    color: black;
+}
+.header2 div p {
+    font-weight:100;
+    margin-left: 450px;
+}
+.header2 div i {
+    margin-right: 15px;
+}
+.section1 {
+    display: flex;
+    flex-direction: column;
+}
+.section1 div {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+
+}
+.main1 {
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    padding-left: 20px;
+    font-weight:2px;
+    color: rgb(81, 81, 81);
+    padding-right: 30px;
+}
+.main2 {
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 100%;
+    overflow-y: auto;
+    height: 100vh;
+}
+.main3 {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 450px;
+}
+main {
+    display: flex;
+    margin-top: 30px;
+}
+.section2 div{
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+.section2 a {
+    margin-left: 30px;
+}
+.anchor {
+    margin-bottom: 10px;
+}
+.imgclass {
+    height: 20px;
+}
+.main3 h4 {
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+.divvv {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.star {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.divvv p {
+    font-size: small;
+}
+.main3 div h4 {
+    font-size: 15px;
+}
+.star p {
+    color: rgb(101, 101, 101);
+    font-size: small;
+}
+.this {
+    color: rgb(84, 84, 84);
+    font-size: small;
+    margin-bottom: 35px;
+}
+.star {
+    margin-bottom: 20px;
+}
+.box {
+    background-color: rgb(239, 239, 239);
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-weight:lighter;
+    margin-bottom: 8px;
+    margin-right: 4px;
+}
+.box1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+.see {
+    margin-top: 30px;
+    font-size: small;
+    color: gray;
+}
+.profile {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-image: url(profile.png);
+    background-size: cover;
+}
+.mainimage {
+    height: 110px;
+    width: 170px;
+    background-image: url(0_t8T61qlsQyLaNKBw.webp);
+    background-size: cover;
+}
+.myname {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+.reach {
+    display: flex;
+    align-items: center;
+}
+.firstreach {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.reach1 {
+    display: flex;
+    gap: 25px;
+    padding-bottom: 10px;
+}
+.take {
+    display: flex;
+    background-color: rgb(244, 244, 244);
+    justify-content: space-between;
+    gap: 120px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 7px;
+    flex-wrap: wrap;
+    padding: 0px 25px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.take a {
+    color: black;
+    padding-bottom: 20px;
+}
+.reach3 {
+    display: flex;
+    justify-content: space-between;
+
+    width: 650px
+}
+.reach4 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.icons {
+    display: flex;
+    gap: 20px;
+}
+.reach4 div {
+    display: flex;
+    gap: 5px;
+
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="header-first">
+                <i class="fa-solid fa-bars"></i>
+                <div class="nav-logo"></div>
+                <input type="text" placeholder="   Search" name="" id="search">
+            </div>
+            <div class="header-second">
+                <div>
+                   <i class="fa-regular fa-pen-to-square"></i>
+                   <p>Write</p>
+
+                </div>
+                 <i class="fa-regular fa-bell"></i>
+               <div class="login">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="header2">
+            <div>
+                <p>
+                    ✦Get unlimited access to the best of Medium for less than $1/week.
+                </p>
+                <a href="#">Become a member</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+    </header>
+
+<!-- main👇🏻-->
+
+<main>
+    <section class="main1">
+        <div class="section1">
+            <div>
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div>
+                <i class="fa-regular fa-bookmark"></i>
+                <p>Library</p>
+            </div>
+            <div>
+                <i class="fa-regular fa-user"></i>
+                <p>Profile</p>
+            </div>
+            <div>
+                <i class="fa-regular fa-file"></i>
+                <p>Stories</p>
+            </div>
+            <div class="last">
+                <i class="fa-solid fa-signal"></i>
+                <P>Stats</P>
+            </div>
+        </div>
+        <hr>
+        <div class="section2">
+            <div>
+                <i class="fa-solid fa-users"></i>
+                <p>Following</p>
+            </div>
+            <div class="anchor">
+                <i class="fa-solid fa-plus"></i>
+                <p>Find writers and<br>publications to follow.</p>
+            </div>
+            <a href="">See suggestions</a>
+       </div>
+    </section>
+    <hr>
+
+
+
+
+    <section class="main2">
+        <div  class="reach1">
+            <p>For you</p>
+            <p>Featured</p>
+        </div>
+        <hr>
+        <div class="take">
+            <p>"Following" and your topics are now part of the new Following page, which you can <br>find from the sidebar.</p>
+            <a href="">Okay,got it</a>
+        </div>
+
+
+        <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p> William Sidnam</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>The Dying Art of Reading in Public</h2>
+                        <p>Taking photos in Paris of people lost between pages</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>John Kruse MD, PhD</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>Don’t Call it a Mood Swing!</h2>
+                        <p>Emotions, moods, and temperaments describe different things.</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+         <div>
+            <div class="myname">
+                <div class="profile"></div>
+                <p>Jason McBride</p>
+            </div>
+
+            <div  class="firstreach">
+                <div>
+                    <div class="title">
+                        <h2>How to Create a Life You Love</h2>
+                        <p>No magical thinking required</p>
+                    </div>
+                    <div class="reach3">
+                        <div class="reach4">
+                            <p>⭐️</p>
+                            <p>July 28</p>
+                            <div class="reach">
+                                <i class="fa-solid fa-hands-clapping"></i>
+                                <p>15.9K</p>
+                            </div>
+                            <div class="reach">
+                                <i class="fa-solid fa-comment"></i>
+                                <p>633</p>
+                            </div>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-regular fa-bookmark"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainimage"></div>
+            </div>
+            <hr>
+        </div>
+
+
+
+    </section>
+    <hr>
+    <section class="main3">
+        <h4>Staff Picks</h4>
+        <div>
+            <div class="divvv">
+                <img class="imgclass" src="/public/Adobe Express - file (1).jpg" alt="">
+                <p>In <b>Age of Awareness</b> by <b>Sam Liberty</b></p>
+            </div>
+            <h4><b>Apps Can't Transform Your Life. Here's Why.</b></h4>
+            <div class="star">
+                <div>⭐️</div>
+                <p>Oct 6</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="divvv">
+                <img class="imgclass" src="/public/Adobe Express - file (2) (1).png" alt="">
+                <p>In In Fitness And In Heal... by Mia Lazarewi...</p>
+            </div>
+            <h4><b>How to Train Mobility When You Have No Idea How to Train Mobility</b></h4>
+            <div class="star">
+                <div>⭐️</div>
+                <p>Oct 15</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="divvv">
+                <img class="imgclass" src="/public/Adobe Express - file (3).png" alt="">
+                <p>Barack Obama </p>
+            </div>
+            <h4><b>My Conversation with Marc Maron</b></h4>
+            <div class="star">
+                <div>⭐️</div>
+                <p>Oct 13</p>
+            </div>
+        </div>
+
+        <p class="this">See the full list</p>
+        <h4>Recommended topics</h4>
+       <div class="box1">
+        <div class="box">Relationships</div>
+        <div class="box">Cryptocurrency</div>
+        <div class="box">Productivity</div>
+        <div class="box">Politics</div>
+        <div class="box">React</div>
+        <div class="box">Culture</div>
+        <div class="box">Psychology</div>
+        </div> 
+        <p class="see">See more topics</p>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "pranjal",
+  "version": "1.0.2",
+  "description": "creating a server using node js ",
+  "keywords": [
+    "prince",
+    "express",
+    "npm",
+    "node",
+    "module",
+    "package"
+  ],
+  "license": "ISC",
+  "author": "vikas patel",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}

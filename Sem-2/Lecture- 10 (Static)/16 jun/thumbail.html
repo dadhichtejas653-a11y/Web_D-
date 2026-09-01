@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download EchoRoom JPG</title>
+</head>
+<body style="background: #020509; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+  <canvas id="thumbCanvas" width="1200" height="630" style="width: 600px; height: 315px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,242,254,0.2);"></canvas>
+  <button id="downloadBtn" style="margin-top: 20px; padding: 12px 24px; font-size: 16px; font-weight: bold; background: #00F2FE; color: #020509; border: none; border-radius: 6px; cursor: pointer;">Download JPG</button>
+
+  <script>
+    const canvas = document.getElementById('thumbCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 1. Background
+    const bgGrad = ctx.createRadialGradient(900, 315, 50, 900, 315, 800);
+    bgGrad.addColorStop(0, '#0b1e3b');
+    bgGrad.addColorStop(0.45, '#050d1a');
+    bgGrad.addColorStop(1, '#020509');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, 1200, 630);
+
+    // 2. Ambient Light Fields
+    const lightGlow = ctx.createRadialGradient(910, 315, 0, 910, 315, 320);
+    lightGlow.addColorStop(0, 'rgba(0, 242, 254, 0.45)');
+    lightGlow.addColorStop(0.5, 'rgba(2, 132, 199, 0.15)');
+    lightGlow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = lightGlow;
+    ctx.beginPath();
+    ctx.arc(910, 315, 320, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 3. Category Pill
+    ctx.fillStyle = '#0b172a';
+    ctx.strokeStyle = 'rgba(0, 242, 254, 0.5)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(75, 60, 225, 32, 16);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#00F2FE';
+    ctx.beginPath();
+    ctx.arc(93, 76, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#38BDF8';
+    ctx.font = 'bold 11px monospace';
+    ctx.fillText('INTERACTIVE SIMULATION', 108, 80);
+
+    // 4. Main Headline
+    ctx.font = '900 64px sans-serif';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('ECHO', 75, 165);
+    const echoWidth = ctx.measureText('ECHO').width;
+    
+    const cyanGrad = ctx.createLinearGradient(75 + echoWidth, 0, 75 + echoWidth + 200, 0);
+    cyanGrad.addColorStop(0, '#00F2FE');
+    cyanGrad.addColorStop(1, '#38BDF8');
+    ctx.fillStyle = cyanGrad;
+    ctx.fillText('ROOM', 75 + echoWidth, 165);
+
+    // 5. Subtitle
+    ctx.font = '700 26px sans-serif';
+    ctx.fillStyle = '#F1F5F9';
+    ctx.fillText('See What Your Feed ', 75, 215);
+    const subWidth = ctx.measureText('See What Your Feed ').width;
+    ctx.fillStyle = '#38BDF8';
+    ctx.fillText('Hides.', 75 + subWidth, 215);
+
+    // 6. Feature Bullets
+    const bullets = [
+      { color: '#00F2FE', text: 'Live Shannon Entropy Recommendation Math' },
+      { color: '#38BDF8', text: 'Interactive 2D Bubble Ocean Simulation' },
+      { color: '#818CF8', text: 'Unmask Black-Box Algorithmic Bias' }
+    ];
+    bullets.forEach((b, i) => {
+      const y = 270 + (i * 34);
+      ctx.fillStyle = b.color;
+      ctx.beginPath();
+      ctx.arc(80, y - 4, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#94A3B8';
+      ctx.font = '500 16px sans-serif';
+      ctx.fillText(b.text, 96, y);
+    });
+
+    // 7. HUD Metric Inspector Box
+    ctx.fillStyle = '#0a162b';
+    ctx.strokeStyle = '#00F2FE';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(75, 385, 470, 145, 16);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#00F2FE';
+    ctx.beginPath();
+    ctx.arc(100, 415, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#64748B';
+    ctx.font = 'bold 11px monospace';
+    ctx.fillText('ALGORITHM METRIC INSPECTOR', 113, 419);
+
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '500 13px sans-serif';
+    ctx.fillText('Diversity Index Formula:', 100, 455);
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 18px monospace';
+    ctx.fillText('H = -∑ p_i · log₂(p_i)', 100, 490);
+
+    // Score Pill inside Inspector
+    ctx.fillStyle = 'rgba(0, 242, 254, 0.15)';
+    ctx.strokeStyle = 'rgba(0, 242, 254, 0.5)';
+    ctx.beginPath();
+    ctx.roundRect(415, 420, 105, 75, 10);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#38BDF8';
+    ctx.font = '800 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('DIVERSITY', 467, 448);
+
+    ctx.fillStyle = '#00F2FE';
+    ctx.font = '900 24px sans-serif';
+    ctx.fillText('87%', 467, 478);
+    ctx.textAlign = 'start';
+
+    // 8. Waves / Rings
+    ctx.strokeStyle = 'rgba(0, 242, 254, 0.3)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([8, 6]);
+    ctx.beginPath();
+    ctx.arc(910, 315, 180, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // 9. Center Bubble (AI & Tech)
+    const sphereGrad = ctx.createRadialGradient(880, 285, 10, 910, 315, 102);
+    sphereGrad.addColorStop(0, '#FFFFFF');
+    sphereGrad.addColorStop(0.2, '#67E8F9');
+    sphereGrad.addColorStop(0.5, '#06B6D4');
+    sphereGrad.addColorStop(0.8, '#0369A1');
+    sphereGrad.addColorStop(1, '#082F49');
+    ctx.fillStyle = sphereGrad;
+    ctx.beginPath();
+    ctx.arc(910, 315, 102, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '800 22px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('AI & TECH', 910, 310);
+
+    // WT Badge
+    ctx.fillStyle = '#041b2d';
+    ctx.strokeStyle = '#38BDF8';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(862, 325, 96, 24, 12);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#67E8F9';
+    ctx.font = 'bold 10px monospace';
+    ctx.fillText('WT: 0.89', 910, 341);
+
+    // 10. Satellite Bubbles
+    function drawSatellite(x, y, r, title, score) {
+      const satGrad = ctx.createRadialGradient(x - r*0.3, y - r*0.3, 5, x, y, r);
+      satGrad.addColorStop(0, '#E0F2FE');
+      satGrad.addColorStop(0.45, '#0284C7');
+      satGrad.addColorStop(1, '#082F49');
+      ctx.fillStyle = satGrad;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '700 12px sans-serif';
+      ctx.fillText(title, x, y - 4);
+      ctx.fillStyle = '#BAE6FD';
+      ctx.font = 'bold 10px monospace';
+      ctx.fillText(score, x, y + 12);
+    }
+
+    drawSatellite(745, 185, 46, 'Climate', '0.42');
+    drawSatellite(1075, 185, 42, 'Education', '0.31');
+    drawSatellite(755, 445, 40, 'Gaming', '0.28');
+
+    // Bottom Stripe
+    ctx.fillStyle = cyanGrad;
+    ctx.fillRect(0, 624, 1200, 6);
+
+    // Download Handler
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'echoroom-thumbnail.jpg';
+      link.href = canvas.toDataURL('image/jpeg', 0.95);
+      link.click();
+    });
+  </script>
+</body>
+</html>
